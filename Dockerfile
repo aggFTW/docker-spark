@@ -1,10 +1,10 @@
-FROM debian:jessie
-MAINTAINER Getty Images "https://github.com/gettyimages"
+FROM ubuntu:14.04
+MAINTAINER aggftw "https://github.com/aggftw"
 
 RUN apt-get update \
  && apt-get install -y locales \
  && dpkg-reconfigure -f noninteractive locales \
- && locale-gen C.UTF-8 \
+ && locale-gen en_US.UTF-8 \
  && /usr/sbin/update-locale LANG=C.UTF-8 \
  && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
  && locale-gen \
