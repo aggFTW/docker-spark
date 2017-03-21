@@ -70,10 +70,10 @@ RUN curl -sL --retry 3 \
  && mv /usr/$SPARK_PACKAGE $SPARK_HOME \
  && chown -R root:root $SPARK_HOME
 
-WORKDIR $SPARK_HOME
-CMD ["bin/spark-class", "org.apache.spark.deploy.master.Master"]
-
 # adds "test.sh" to `WORKDIR`/test.sh
 ENV TEST_LOCATION $SPARK_HOME/test.sh
 COPY test.sh $TEST_LOCATION
 RUN chmod +777 $TEST_LOCATION
+
+WORKDIR $SPARK_HOME
+CMD ["bin/spark-class", "org.apache.spark.deploy.master.Master"]

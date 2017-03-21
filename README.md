@@ -47,3 +47,18 @@ Then, to shutdown the master and worker, execute:
 ## license
 
 MIT
+
+# Testing HDI
+
+You will use `docker-compose` to create a small cluster of 1 worker node and 1 master node.
+
+Run:
+    docker-compose up -d
+    docker exec -it dockerspark_master_1 "/usr/spark-2.1.1/test.sh"
+    docker-compose down
+
+and you should see the following:
+    Success SparkPi
+    Success Pi.py
+
+Also, you can go to http://localhost:8080/ to see the application information and the workers.
